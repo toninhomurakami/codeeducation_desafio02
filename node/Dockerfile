@@ -5,10 +5,10 @@ RUN apt-get update && apt-get install -y wget
 WORKDIR /usr/src/app
 COPY . .
 
-RUN npm init -y
-RUN npm install express --save
-RUN npm install mysql --save
-RUN npm install
+RUN npm init -y && \
+    npm install express --save  && \
+    npm install mysql --save  && \
+    npm install
 
 ENV DOCKERIZE_VERSION v0.6.1
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
